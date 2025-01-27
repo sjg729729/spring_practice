@@ -4,6 +4,7 @@ import com.example.practice.service.posts.PostsService;
 import com.example.practice.web.dto.PostsResponseDto;
 import com.example.practice.web.dto.PostsSaveRequestDto;
 import com.example.practice.web.dto.PostsUpdateRequestDto;
+import com.example.practice.web.dto.SuccessDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +28,12 @@ public class PostsApiController {
 
     // 조회
     @GetMapping("/api/v1/posts/{id}")
-    public PostsResponseDto findById(@PathVariable Long id) {
-        return postsService.findById(id);
+    public SuccessDto<Object> findById(@PathVariable Long id) {
+        PostsResponseDto post = postsService.findById(id);
+        return SuccessDto.builder()
+                .success(true)
+                .data(post)
+                .message("성공!!")
+                .build();
     }
 }
