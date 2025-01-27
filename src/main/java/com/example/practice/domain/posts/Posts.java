@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
  * jpa는 객체를 생성할 때 기본 생성자를 사용 (필수)
  * setter가 없어도 jpa는 필드에 직접 접근해 엔티티를 관리
  * 비즈니스 로직은 setter를 사용 하지 않음. 메서드를 통해 명시적으로 수정
- *
  */
 
 @Getter
